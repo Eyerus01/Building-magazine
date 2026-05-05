@@ -210,11 +210,19 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
 
         // Populate header
-        document.getElementById('article-hero-img').src = heroImgSrc.replace('400/300', '1920/1080');
+        // Use LoremFlickr for a guaranteed high-res hero image instead of potentially broken Wikipedia thumbnails
+        document.getElementById('article-hero-img').src = `https://loremflickr.com/1920/1080/${encodeURIComponent(tag)}?lock=${pageId}`;
         document.getElementById('article-tag').textContent = tag.toUpperCase();
         document.getElementById('article-title').textContent = title;
         document.getElementById('article-subtitle').textContent = `An in-depth exploration of ${title}.`;
-        document.getElementById('article-source').href = `https://en.wikipedia.org/?curid=${pageId}`;
+        
+        const pageUrl = `https://en.wikipedia.org/?curid=${pageId}`;
+        document.getElementById('article-source').href = pageUrl;
+        
+        // Social links
+        document.getElementById('btn-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+        document.getElementById('btn-twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent('Read: ' + title)}`;
+        document.getElementById('btn-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
         
         // Populate Gallery Images
         document.getElementById('gallery-img-1').src = `https://loremflickr.com/600/400/${encodeURIComponent(tag)}?lock=${pageId + 1}`;

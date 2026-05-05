@@ -1,173 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magazine</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    />
+    <title>Modern Dev Magazine</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Navbar & Progress Bar -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">MD.Mag</div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </nav>
+
     <main>
-      <section class="heading">
-        <header class="hero">
-          <img
-            src="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
-            alt="freecodecamp logo"
-            loading="lazy"
-            class="hero-img"
-          />
-          <h1 class="hero-title">OUR NEW CURRICULUM</h1>
-          <p class="hero-subtitle">
-            Our efforts to restructure our curriculum with a more project-based
-            focus
-          </p>
-        </header>
-        <div class="author">
-          <p class="author-name">
-            By
-            <a href="https://freecodecamp.org" target="_blank" rel="noreferrer"
-              >freeCodeCamp</a
-            >
-          </p>
-          <p class="publish-date">March 7, 2019</p>
+      <!-- EXPLORE SECTION -->
+      <section id="explore-view" class="explore-section glass-card">
+        <div class="explore-header">
+          <h2>Explore Magazines</h2>
+          <p>Discover articles and publications from any area of interest.</p>
         </div>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/freecodecamp/">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://twitter.com/freecodecamp/">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://instagram.com/freecodecamp">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/school/free-code-camp/">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.youtube.com/freecodecamp">
-            <i class="fab fa-youtube"></i>
-          </a>
+        
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="topic-search" placeholder="Search topics (e.g., Technology, Art, Health)..." />
+            <button id="search-btn">Search</button>
+          </div>
+          
+          <div class="category-pills">
+            <button class="pill active" data-category="trending">Trending</button>
+            <button class="pill" data-category="technology">Technology</button>
+            <button class="pill" data-category="design">Design</button>
+            <button class="pill" data-category="business">Business</button>
+            <button class="pill" data-category="health">Health</button>
+            <button class="pill" data-category="science">Science</button>
+          </div>
+        </div>
+
+        <div class="magazine-grid" id="magazine-results">
+          <!-- Dynamic results will be injected here -->
         </div>
       </section>
-      <section class="text">
-        <p class="first-paragraph">
-          Soon the freeCodeCamp curriculum will be 100% project-driven learning. Instead of a series of coding challenges, you'll learn through building projects - step by step. Before we get into the details, let me emphasize: we are not changing the certifications. All 6 certifications will still have the same 5 required projects. We are only changing the optional coding challenges.
-        </p>
-        <p>
-          After years - years - of pondering these two problems and how to solve them, I slipped, hit my head on the sink, and when I came to I had a revelation! A vision! A picture in my head! A picture of this! This is what makes time travel possible: the flux capacitor!
-        </p>
-        <p>
-          It wasn't as dramatic as Doc's revelation in Back to the Future. It
-          just occurred to me while I was going for a run. The revelation: the entire curriculum should be a series of projects. Instead of individual coding challenges, we'll just have projects, each with their own seamless series of tests. Each test gives you just enough information to figure out how to get it to pass. (And you can view hints if that isn't enough.)
-        </p>
-        <blockquote>
-          <hr />
-          <p class="quote">
-            The entire curriculum should be a series of projects
-          </p>
-          <hr />
-        </blockquote>
-        <p>
-          No more walls of explanatory text. No more walls of tests. Just one
-          test at a time, as you build up a working project. Over the course of passing thousands of tests, you build up projects and your own understanding of coding fundamentals. There is no transition between lessons and projects, because the lessons themselves are baked into projects. And there's plenty of repetition to help you retain everything because - hey - building projects in real life has plenty of repetition.
-        </p>
-        <p>
-          The main design challenge is taking what is currently paragraphs of explanation and instructions and packing them into a single test description text. Each project will involve dozens of tests like this. People will be coding the entire time, rather than switching back and forth from "reading mode" to "coding mode".
-        </p>
-        <p>
-          Instead of a series of coding challenges, people will be in their code editor passing one test after another, quickly building up a project. People will get into a real flow state, similar to what they experience when they build the required projects at the end of each certification. They'll get that sense of forward progress right from the beginning. And freeCodeCamp will be a much smoother experience.
-        </p>
-      </section>
-      <section class="text text-with-images">
-        <article class="brief-history">
-          <h3 class="list-title">A Brief History</h3>
-          <p>Of the Curriculum</p>
-          <ul class="lists">
-            <li>
-              <h4 class="list-subtitle">V1 - 2014</h4>
-              <p>
-                We launched freeCodeCamp with a simple list of 15 resources,
-                including Harvard's CS50 and Stanford's Database Class.
-              </p>
-            </li>
-            <li>
-              <h4 class="list-subtitle">V2 - 2015</h4>
-              <p>We added interactive algorithm challenges.</p>
-            </li>
-            <li>
-              <h4 class="list-subtitle">V3 - 2015</h4>
-              <p>
-                We added our own HTML+CSS challenges (before we'd been relying on
-                General Assembly's Dash course for these).
-              </p>
-            </li>
-            <li>
-              <h4 class="list-subtitle">V4 - 2016</h4>
-              <p>
-                We expanded the curriculum to 3 certifications, including Front-End,
-                Back-End, and Data Visualization. They each had 10 required
-                projects, but only the Front-End section had its own challenges.
-                For the other certs, we were still using external resources like
-                Node School.
-              </p>
-            </li>
-            <li>
-              <h4 class="list-subtitle">V5 - 2017</h4>
-              <p>We added the back-end and data visualization challenges.</p>
-            </li>
-            <li>
-              <h4 class="list-subtitle">V6 - 2018</h4>
-              <p>
-                We launched 6 new certifications to replace our old ones. This was
-                the biggest curriculum improvement to date.
-              </p>
-            </li>
-          </ul>
-        </article>
-        <aside class="image-wrapper">
-          <img
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/random-quote-machine.png"
-            alt="image of the quote machine project"
-            loading="lazy"
-            class="image-1"
-            width="600"
-            height="400"
-          />
-          <img
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/calc.png"
-            alt="image of a calculator project"
-            loading="lazy"
-            class="image-2"
-            width="400"
-            height="400"
-          />
-          <blockquote class="image-quote">
-            <hr />
-            <p class="quote">
-              The millions of people who are learning to code through freeCodeCamp
-              will have an even better resource to help them learn these
-              fundamentals.
-            </p>
-            <hr />
-          </blockquote>
-          <img
-            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg"
-            alt="four people working on code"
-            loading="lazy"
-            class="image-3"
-            width="600"
-            height="400"
-          />
-        </aside>
-      </section>
+
+      <!-- ARTICLE VIEW -->
+      <div id="article-view" class="hidden">
+        <section class="heading glass-card">
+          <header class="hero">
+            <div class="hero-image-container">
+               <img id="article-hero-img" src="" alt="Hero image" loading="lazy" class="hero-img" />
+               <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-text">
+              <span id="article-tag" class="category-tag">Tag</span>
+              <h1 id="article-title" class="hero-title">Title</h1>
+              <p id="article-subtitle" class="hero-subtitle">Subtitle</p>
+            </div>
+          </header>
+
+          <div class="meta-info">
+            <div class="author">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png" alt="Wikipedia" class="author-avatar" style="background:white; padding:2px;">
+              <div class="author-details">
+                <p class="author-name">By <a href="#" id="article-source" target="_blank" rel="noreferrer">Wikipedia Contributors</a></p>
+                <p class="publish-date" id="article-date">Updated Recently</p>
+              </div>
+            </div>
+            
+            <div class="social-icons">
+              <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+              <button id="close-article-btn" class="social-btn bookmark" title="Back to Search" style="background: var(--accent-color); color: white;"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <div class="content-wrapper">
+          <section class="text" id="article-body">
+            <!-- Paragraphs injected here -->
+          </section>
+
+          <section class="text-with-images">
+            <article class="brief-history glass-card">
+              <div class="history-header">
+                <h3 class="list-title">Table of Contents</h3>
+                <p class="list-subtitle">Article Overview</p>
+              </div>
+              <ul class="timeline" id="article-toc">
+                <!-- injected subheadings -->
+              </ul>
+            </article>
+
+            <aside class="image-gallery">
+              <figure class="gallery-item glass-card tilt-effect">
+                <img id="gallery-img-1" src="" alt="Gallery Image 1" loading="lazy" />
+                <figcaption>Related imagery</figcaption>
+              </figure>
+              <figure class="gallery-item glass-card tilt-effect">
+                <img id="gallery-img-2" src="" alt="Gallery Image 2" loading="lazy" />
+                <figcaption>Visual context</figcaption>
+              </figure>
+              <div class="gallery-quote glass-panel">
+                <p id="article-quote">"Empowering millions to learn through building."</p>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </div>
     </main>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
   </body>
 </html>
